@@ -6,6 +6,8 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
+    scroll-padding-top: 20px;
+    
 }
 
 body {
@@ -25,14 +27,39 @@ body {
     margin-top: 1.5vw; /* Margin as a percentage of viewport width */
     margin-bottom: 1vw;
     margin-left: 3vw;
-    background-color:rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     border: 1px solid #ccc; /* Optional: adds a border to visualize the container */
     filter: blur(0px); /* Apply blur effect */
     border-radius: 0px; /* Optional: rounds the corners */
     box-sizing: border-box; /* Ensure padding and border are included in width/height */
     padding: 0px; /* Optional: adds space inside the container */
     overflow: auto;
-}   
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    position: relative; /* Make it relative to ensure the pseudo-element is positioned correctly */
+}
+
+.blurred-container::before {
+    content: "";
+    display: block;
+    height: 60px; /* Height to account for fixed header or top padding */
+    position: absolute;
+    top: -60px; /* Moves it above the container */
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* Invisible padding */
+}
+
+.blurred-container::before {
+    content: "";
+    display: block;
+    height: 60px; /* Height to account for fixed header or top padding */
+    position: absolute;
+    top: -60px; /* Moves it above the container */
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* Invisible padding */
+}
 
 .image-container {
     position: absolute;
@@ -105,11 +132,51 @@ body {
 } 
 
 .full-width-box {
+    scroll-snap-align:start;
     width: 100%; /* Full width of the container */
-    height: 200px; /* Adjustable height, change as needed */
-    background-color: black; /* Box color */
+    height: 550px; /* Adjustable height, change as needed */
+    background-color: rgba(0, 0, 0, 0); /* Box color */
     margin: 0; /* Ensure no margin */
-    padding: 0; /* Ensure no padding */
+    margin-top: 22px;
+    display: flex;
+}
+
+.half-width-box {
+    position: relative; /* Position it relative to the full-width box */
+    top: 10px; /* Space from the top of the full-width box */
+    left:10px;
+    right: 10px; /* Space from the right of the full-width box */
+    width: calc(50% - 20px); /* Half width minus padding */
+    height: 525px; /* Adjustable height, change as needed */
+    background-color: rgba(0, 0, 0, 0); /* Box color */
+}
+
+.full-width-box-no-flex {
+    scroll-snap-align:start;
+    width: 100%; /* Full width of the container */
+    height: 550px; /* Adjustable height, change as needed */
+    background-color: rgba(0, 0, 0, 0); /* Box color */
+    margin: 0; /* Ensure no margin */
+    margin-top: 22px;
+    /* display: flex; */
+}
+
+.row {
+   position: relative;
+   top:10px;
+   left:10px;
+   width: 95%;
+   height: 155px;
+   
+
+}
+
+.row-head {
+    position: relative;
+    top:5px;
+    left:10px;
+    width: 95%;
+    height: 30px;
 }
 
 
