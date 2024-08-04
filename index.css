@@ -166,7 +166,8 @@ body {
    top:10px;
    left:10px;
    width: 95%;
-   height: 155px;
+   height: 225px;
+   display: flex;
    
 
 }
@@ -177,6 +178,14 @@ body {
     left:10px;
     width: 95%;
     height: 30px;
+}
+
+.achevenment-text{
+    width:60%;
+    margin: 20px;
+    font-family: math;
+    font-weight: bold;
+    font-size: large;
 }
 
 
