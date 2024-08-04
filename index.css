@@ -1,0 +1,174 @@
+/* Ensure the body and html elements take up the full viewport height */
+/* Apply background image to the body */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: url('Images/bck4.jpeg'); /* Replace with your image URL */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-size: 100% auto; /* Ensure the image covers the entire body */
+    background-attachment:scroll; /* Fixes the background image position */
+    top:0;/* Remove default margin from the body */
+    height: 100vh; /* Ensure body height covers the viewport */
+}
+
+/* Container styles */
+.blurred-container {
+    width: calc(100vw - 10vw); /* Width of viewport minus a percentage for dynamic margin */
+    height: calc(100vh - 10vh); /* Height of viewport minus a percentage for dynamic margin */
+    margin-top: 1.5vw; /* Margin as a percentage of viewport width */
+    margin-bottom: 1vw;
+    margin-left: 3vw;
+    background-color:rgba(0, 0, 0, 0.9);
+    border: 1px solid #ccc; /* Optional: adds a border to visualize the container */
+    filter: blur(0px); /* Apply blur effect */
+    border-radius: 0px; /* Optional: rounds the corners */
+    box-sizing: border-box; /* Ensure padding and border are included in width/height */
+    padding: 0px; /* Optional: adds space inside the container */
+    overflow: auto;
+}   
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0vw;
+    width: 50%; /* Adjust width as needed */
+    height: 100%; /* Adjust height as needed */
+    overflow: hidden;
+    
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container without stretching */
+}
+
+.positioned-text {
+    position: absolute; /* Absolute positioning relative to the container */
+    transform: translate(-50%, -50%); /* Center the text horizontally and vertically */
+    color: white; /* Optional: text color for visibility */
+    
+}
+
+
+.line-container {
+    width: 45vw;
+    height: 40vw;
+    position:relative;
+    z-index: 1;
+}
+
+.slanted-line {
+    position: relative;
+    width: 100%; /* Adjust width as needed */
+    height: 2px; /* Line thickness */
+    background-color: #ffffff; /* Line color */
+    transform: rotate(70deg); /* Rotate the line by 70 degrees */
+    transform-origin: top left; /* Rotate from the top-left corner */
+    
+}
+
+.slide-in-text {
+    overflow: hidden; /* Hide overflow to avoid content being visible before animation starts */
+    white-space: nowrap; /* Prevent text wrapping */
+    transform: translateX(-10%); /* Start position: off-screen to the left */
+    animation: slideIn 3s ease-out forwards; /* Apply the slide-in animation over 3 seconds */
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-10%); /* Start position: off-screen to the left */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0); /* End position: aligned with its original place */
+        opacity: 1;
+    }
+}
+
+.parallelogram-text {
+    background-color: yellow; /* Background color */
+    padding-right: 10vw;
+    padding-left : 7vw;
+    color: rgb(0, 0, 0); /* Text color */
+    
+    clip-path: polygon(10% 0%, 70% 0%, 80% 100%, 20% 100%); /* Parallelogram shape tilted to the left */
+    transform: skew(-20deg); /* Optional: adjust skew for better parallelogram appearance */
+} 
+
+.full-width-box {
+    width: 100%; /* Full width of the container */
+    height: 200px; /* Adjustable height, change as needed */
+    background-color: black; /* Box color */
+    margin: 0; /* Ensure no margin */
+    padding: 0; /* Ensure no padding */
+}
+
+
+/* navbar */
+.navbar {
+    background-color: transparent;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000; /* Ensure the navbar stays on top of other elements */
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    margin-left: 1rem;
+}
+
+.navbar-brand {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: color 0.3s, transform 0.3s, font-weight 0.3s;
+    font-weight: normal; /* Ensure normal font-weight initially */
+}
+
+.navbar-link:hover {
+    color: #f0f0f0; /* Brighter color on hover */
+    transform: scale(1.1); /* Slightly increase size on hover */
+    
+}
+
+/* Reserve space for the bold text to avoid navbar shifting */
+.navbar-link::after {
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    font-weight: bold;
+}

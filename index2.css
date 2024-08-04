@@ -1,0 +1,31 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: url('Images/bck4.jpeg'); /* Replace with your image URL */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-size: 100% auto; /* Ensure the image covers the entire body */
+    background-attachment: scroll; /* Fixes the background image position */
+    top: 0; /* Remove default margin from the body */
+    height: 100vh; /* Ensure body height covers the viewport */
+}
+
+.blurred-container {
+    width: calc(100vw - 10vw); /* Width of viewport minus a percentage for dynamic margin */
+    height: calc(100vh - 10vh); /* Height of viewport minus a percentage for dynamic margin */
+    margin-top: 0px; /* Margin as a percentage of viewport width */
+    margin-bottom: 1vw;
+    margin-left: 3vw;
+    background-color:rgba(0, 0, 0, 0.9);
+    border: 10px solid #ff0000; /* Optional: adds a border to visualize the container */
+    filter: blur(0px); /* Apply blur effect */
+    border-radius: 0px; /* Optional: rounds the corners */
+    box-sizing: border-box; /* Ensure padding and border are included in width/height */
+    padding: 0px; /* Optional: adds space inside the container */
+    overflow: auto;
+}  
